@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--This is the item that will be displayed in the bottom bar, and it is connected to the HoroscopeFragment-->
+    <item
+        android:id="@+id/horoscopeFragment"
+        android:title="@string/horoscope"
+        android:icon="@drawable/ic_horoscope"/>
+
+    <!--This is the item that will be displayed in the bottom bar, and it is connected to the LuckFragment-->
+    <item
+        android:id="@+id/luckFragment"
+        android:icon="@drawable/ic_cards"
+        android:title="@string/luck"/>
+
+    <!--This is the item that will be displayed in the bottom bar, and it is connected to the PalmistryFragment-->
+    <item
+        android:id="@+id/palmistryFragment"
+        android:icon="@drawable/ic_hand"
+        android:title="@string/palmistry"/>
+</menu>
