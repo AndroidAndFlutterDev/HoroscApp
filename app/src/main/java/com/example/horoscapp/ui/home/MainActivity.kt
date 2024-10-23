@@ -10,7 +10,10 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.horoscapp.R
 import com.example.horoscapp.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+// This is the main activity of the app, and this annotation tells Hilt that this is the entry point for the app.
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     // Set up view binding

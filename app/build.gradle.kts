@@ -1,6 +1,10 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+
+    // These are the plugins that will be used to access and charge the Hilt code
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -43,6 +47,10 @@ android {
 dependencies {
 
     val navVersion = "2.7.1"
+
+    // Dagger Hilt
+    implementation("com.google.dagger:hilt-android:2.48")
+    kapt("com.google.dagger:hilt-compiler:2.48")
 
     // Navigation Component
     implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")
