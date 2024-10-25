@@ -49,7 +49,7 @@ class HoroscopeFragment : Fragment() {
                 // collect the horoscope from the ViewModel: Each time the horoscope value changes, this will be executed: It's a Flow
                 horoscopeViewModel.horoscope.collect{
 
-                    // Log the horoscope to the console so we can see the horoscope value in the logcat
+                    // Log the horoscope to the console so we can see the horoscope list in the logcat
                     Log.i("Julian", it.toString())
 
                 }
