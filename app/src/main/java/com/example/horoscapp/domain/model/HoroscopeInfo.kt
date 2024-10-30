@@ -1,6 +1,10 @@
 package com.example.horoscapp.domain.model
 
-// This class will paint in the UI all the objects into the Horoscope Fragment
+/*
+    * This is the model of the horoscope screen
+    * Since we are using MVVM architecture in our project, we need to create a model of the data that we want to show in the UI
+ */
+
 import com.example.horoscapp.R
 
 // This is a sealed class, which means that it can only be inherited from this class, and not from other classes

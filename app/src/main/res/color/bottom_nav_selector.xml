@@ -2,5 +2,5 @@
 <!--This is the selector of colors of the bottom navigation bar. How is this working? It is an item that WHEN IT'S CHECKED, it's color will be the secondary color. If is not checked, it will be the accent color.-->
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:color="@color/secondary" android:state_checked="true" />
-    <item android:color="@color/accent" />
+    <item android:color="@color/accent"/>
 </selector>
