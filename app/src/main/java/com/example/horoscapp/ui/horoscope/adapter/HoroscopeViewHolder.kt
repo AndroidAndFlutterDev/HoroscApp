@@ -24,19 +24,22 @@ class HoroscopeViewHolder(view: View): RecyclerView.ViewHolder(view){
 
         // When the item is selected, we call the function that will tell the adapter what to do. This function receives an object of type HoroscopeInfo (defined in the Adapter)
         binding.parent.setOnClickListener {
-            startRotation(binding.ivHoroscope)
-            onItemSelected(horoscopeInfo)
+            startRotation(binding.ivHoroscope){
+                // When the rotation is finished, we call the function that will tell the adapter what to do. This function receives an object of type HoroscopeInfo (defined in the Adapter)
+                onItemSelected(horoscopeInfo)
+            }
         }
     }
 
     // This function will initiate the rotation of the image
-    private fun startRotation(view:View) {
+    private fun startRotation(view:View, onEndAction:() -> Unit) {
 
-        // Set the rotation of the image to 360 degrees, set it as the same speed all the time (LinearInterpolator), and start the animation
+        // Set the rotation of the image to 360 degrees, set it as a constant speed all the time (LinearInterpolator), and start the animation
         view.animate().apply {
             duration = 500
             interpolator = LinearInterpolator()
             rotationBy(360f)
+            withEndAction { onEndAction() }
             start()
         }
     }

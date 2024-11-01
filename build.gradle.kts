@@ -5,4 +5,5 @@ plugins {
 
     // This is the plugin that will be used to generate the Hilt code
     id("com.google.dagger.hilt.android") version "2.48" apply false // Use the correct plugin ID and version
+    id("androidx.navigation.safeargs.kotlin") version "2.8.3" apply false
 }

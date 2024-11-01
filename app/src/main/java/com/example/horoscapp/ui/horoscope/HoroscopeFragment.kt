@@ -1,20 +1,20 @@
 package com.example.horoscapp.ui.horoscope
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.horoscapp.databinding.FragmentHoroscopeBinding
 import com.example.horoscapp.domain.model.HoroscopeInfo
+import com.example.horoscapp.domain.model.HoroscopeModel
 import com.example.horoscapp.ui.horoscope.adapter.HoroscopeAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -48,10 +48,31 @@ class HoroscopeFragment : Fragment() {
     // This function will initialize the recyclerview, by setting the adapter and the layout manager
     private fun initList() {
 
-        // Init the adapter, so we can set it to the RecyclerView
+        // Init the adapter, so we can set it to the RecyclerView. Then, use the lambda function to navigate to the detail screen
         horoscopeAdapter = HoroscopeAdapter(onItemSelected = {
-            // When we click on an item, we show a Toast with the name of the item
-            Toast.makeText(context, it.name, Toast.LENGTH_LONG).show()
+
+            // Assign the object type to an "object" from the HoroscopeModel enum class
+            val type = when (it) {
+                HoroscopeInfo.Aquarius -> HoroscopeModel.Aquarius
+                HoroscopeInfo.Aries -> HoroscopeModel.Aries
+                HoroscopeInfo.Cancer -> HoroscopeModel.Cancer
+                HoroscopeInfo.Capricorn -> HoroscopeModel.Capricorn
+                HoroscopeInfo.Gemini -> HoroscopeModel.Gemini
+                HoroscopeInfo.Leo -> HoroscopeModel.Leo
+                HoroscopeInfo.Libra -> HoroscopeModel.Libra
+                HoroscopeInfo.Pisces -> HoroscopeModel.Pisces
+                HoroscopeInfo.Saggitarius -> HoroscopeModel.Saggitarius
+                HoroscopeInfo.Scorpio -> HoroscopeModel.Scorpio
+                HoroscopeInfo.Taurus -> HoroscopeModel.Taurus
+                HoroscopeInfo.Virgo -> HoroscopeModel.Virgo
+            }
+
+            // Navigate to the detail screen, by using the action that we defined in the navigation graph
+            findNavController().navigate(
+
+                // Pass the type as a parameter because that is the argument that we defined in the navigation graph for our detail screen (Activity)
+                HoroscopeFragmentDirections.actionHoroscopeFragmentToHoroscopeDetailActivity(type)
+            )
         })
 
         // We use the .apply in our RecyclerVIew so any attr will be applied

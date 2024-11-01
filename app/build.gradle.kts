@@ -5,6 +5,8 @@ plugins {
     // These are the plugins that will be used to access and charge the Hilt code
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
+
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
