@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_horoscope" >
         <action
             android:id="@+id/action_horoscopeFragment_to_horoscopeDetailActivity"
-            app:destination="@id/horoscopeDetailActivity" />
+            app:destination="@+id/horoscopeDetailActivity" />
     </fragment>
     <fragment
         android:id="@+id/luckFragment"
