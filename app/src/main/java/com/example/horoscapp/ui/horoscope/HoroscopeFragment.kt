@@ -53,6 +53,7 @@ class HoroscopeFragment : Fragment() {
 
             // Assign the object type to an "object" from the HoroscopeModel enum class
             val type = when (it) {
+
                 HoroscopeInfo.Aquarius -> HoroscopeModel.Aquarius
                 HoroscopeInfo.Aries -> HoroscopeModel.Aries
                 HoroscopeInfo.Cancer -> HoroscopeModel.Cancer
@@ -83,7 +84,7 @@ class HoroscopeFragment : Fragment() {
         }
     }
 
-    // This function will initialize the life cycle of the UI (It's a coroutine)
+    // This function will initialize the state of the UI. Basically, this is where the View subscribes to the ViewModel
     private fun initUIState() {
 
         // launch the coroutine in the main thread

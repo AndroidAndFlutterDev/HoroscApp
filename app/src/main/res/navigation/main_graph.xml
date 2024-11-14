@@ -12,7 +12,12 @@
         tools:layout="@layout/fragment_horoscope" >
         <action
             android:id="@+id/action_horoscopeFragment_to_horoscopeDetailActivity"
-            app:destination="@+id/horoscopeDetailActivity" />
+            app:destination="@+id/horoscopeDetailActivity"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_bottom">
+        </action>
     </fragment>
     <fragment
         android:id="@+id/luckFragment"
