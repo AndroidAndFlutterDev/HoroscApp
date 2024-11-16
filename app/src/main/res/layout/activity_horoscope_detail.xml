@@ -18,6 +18,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:background="@color/red" />
 
+
     <ImageView
         android:id="@+id/ivBack"
         android:layout_width="wrap_content"
@@ -57,6 +58,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:indeterminateTint="@color/gold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvLostConnection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="5dp"
+        android:fontFamily="@font/dancing"
+        android:text="@string/lost_connection"
+        android:textAlignment="center"
+        android:textColor="@color/secondary"
+        android:textSize="20sp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

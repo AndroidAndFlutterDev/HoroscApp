@@ -20,4 +20,9 @@
     <string name="capricorn">Capricorn</string>
     <string name="aquarius">Aquarius</string>
     <string name="pisces">Pisces</string>
+        <!--Horoscope Detail-->
+    <string name="lost_connection">Something went wrong. Please try again later</string>
+
+    <!--Luck-->
+    <string name="share">Share</string>
 </resources>

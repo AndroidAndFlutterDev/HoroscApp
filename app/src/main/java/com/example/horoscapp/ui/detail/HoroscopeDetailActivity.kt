@@ -1,6 +1,7 @@
 package com.example.horoscapp.ui.detail
 
 import android.os.Bundle
+import android.view.animation.AlphaAnimation
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -84,18 +85,25 @@ class HoroscopeDetailActivity : AppCompatActivity() {
     // This function will handle the error state
     private fun errorState() {
         binding.progressBar.isVisible = false
+        binding.tvLostConnection.isVisible = true
     }
 
     // This function will handle the Loading state (the easiest)
     private fun loadingState() {
         binding.progressBar.isVisible = true
+        binding.tvLostConnection.isVisible = false
     }
 
     // This function will handle the Success state (Once the data is loaded, we can show it)
     private fun successState(state: HoroscopeDetailState.Success) {
+
+        val appearAnimation = AlphaAnimation(0.0f, 1.0f)
+        appearAnimation.duration = 500
+
         binding.progressBar.isVisible = false
         binding.tvTitle.text = state.sign
         binding.tvBody.text = state.prediction
+        binding.tvLostConnection.isVisible = false
 
         // When the horoscopeModel inside the Success state, we set each image resource to it
         val image: Int = when (state.horoscopeModel) {
@@ -115,5 +123,7 @@ class HoroscopeDetailActivity : AppCompatActivity() {
 
         // Set the binding resource to the image
         binding.ivHoroscopeDetail.setImageResource(image)
+
+        binding.main.startAnimation(appearAnimation)
     }
 }
