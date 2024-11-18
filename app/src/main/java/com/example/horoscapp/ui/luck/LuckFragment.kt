@@ -1,6 +1,8 @@
 package com.example.horoscapp.ui.luck
 
 import android.animation.ObjectAnimator
+import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -15,8 +17,11 @@ import androidx.core.animation.doOnStart
 import androidx.core.view.isVisible
 import com.example.horoscapp.R
 import com.example.horoscapp.databinding.FragmentLuckBinding
+import com.example.horoscapp.ui.core.listeners.OnSwipeTouchListener
+import com.example.horoscapp.ui.providers.RandomCardProvider
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.Random
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class LuckFragment : Fragment() {
@@ -27,6 +32,9 @@ class LuckFragment : Fragment() {
     // This property access the binding of the luck Fragment (access to its value, and it's not null). This is for the onCreateView, it's a read-only property
     private val binding get() = _binding!!
 
+    @Inject
+    lateinit var randomCardProvider: RandomCardProvider
+
     // Once the View is created, this code will be executed
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         initUI()
@@ -34,11 +42,59 @@ class LuckFragment : Fragment() {
 
     // This function will initialize the UI (generally)
     private fun initUI() {
+        preparePrediction()
         initListeners()
     }
 
+    // This function will set the image and text of the UI
+    private fun preparePrediction() {
+        val currentLuck = randomCardProvider.getLuck()
+
+        // The "let" function will only be executed as long as the value is not null
+        currentLuck?.let {luck ->
+
+            val currentPrediction: String = getString(luck.text)
+
+            binding.tvLucky.text = currentPrediction
+            binding.ivLuckyCard.setImageResource(luck.image)
+            binding.tvShare.setOnClickListener {
+                shareResult(currentPrediction)
+            }
+        }
+    }
+
+    // This function will allow the user to share the premonition
+    private fun shareResult(prediction: String) {
+
+        // This value is the preparing of the Intent for sharing it
+        val sendIntent: Intent = Intent().apply {
+
+            // This parameter says that the action of the Intent, will be sending it to a different app
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT, prediction)
+            type = "text/plain"
+        }
+
+        // This is the action, of sharing the Intent: The createChooser gives the user a lot of options of apps for sending the Intent
+        val shareIntent = Intent.createChooser(sendIntent, null)
+        startActivity(shareIntent)
+    }
+
+    // This function will handle the listeners
+    @SuppressLint("ClickableViewAccessibility")
     private fun initListeners() {
-        binding.ivLuckyWheel.setOnClickListener { spinWheel() }
+
+        // When the user "swipes" on the Roulette, we call the function that spins it
+        binding.ivLuckyWheel.setOnTouchListener(@SuppressLint("ClickableViewAccessibility")
+        object : OnSwipeTouchListener(requireContext()){
+            override fun onSwipeRight() {
+                spinWheel()
+            }
+
+            override fun onSwipeLeft() {
+                spinWheel()
+            }
+        })
     }
 
     // This function will rotate the roulette

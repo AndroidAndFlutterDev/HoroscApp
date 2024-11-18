@@ -61,7 +61,7 @@
             app:layout_constraintHeight_percent="0.6"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:background="@color/red" />
+            tools:background="@color/red" />
 
         <TextView
             android:id="@+id/tvLucky"
@@ -74,7 +74,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ivLuckyCard"
-            android:text="HIII i'M JULIAN PRINCIPE AND I WILL SWITCH TO FLUTTER VERY SOON!!!" />
+            tools:text="HIII i'M JULIAN PRINCIPE AND I WILL SWITCH TO FLUTTER VERY SOON!!!" />
 
         <TextView
             android:id="@+id/tvShare"
