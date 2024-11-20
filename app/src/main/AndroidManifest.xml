@@ -2,8 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!--Add this feature for accessing ANY camera of the Android device-->
+    <uses-feature android:name="android.hardware.camera.any"/>
+
     <!--Add this permission for accessing the Internet-->
     <uses-permission android:name="android.permission.INTERNET"/>
+
+    <!--Add this permission for accessing the camera of the Android device-->
+    <uses-permission android:name="android.permission.CAMERA"/>
 
     <application
         android:name=".HoroscApp"

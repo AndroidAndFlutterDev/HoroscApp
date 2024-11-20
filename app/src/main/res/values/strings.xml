@@ -58,4 +58,7 @@
     <string name="luck_29">"A challenge you face now will become a stepping stone to success."</string>
     <string name="luck_30">"Unexpected travel plans will broaden your horizons."</string>
     <string name="luck_31">"A surprising twist of fate will bring unexpected blessings."</string>
+
+    <!--Palmistry-->
+    <string name="no_camera_permission">Accept the permissions for a magical experience</string>
 </resources>
