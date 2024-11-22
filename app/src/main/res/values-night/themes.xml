@@ -3,5 +3,6 @@
     <style name="Base.Theme.HoroscApp" parent="Theme.Material3.DynamicColors.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <item name="android:statusBarColor">@color/secondary</item>
+        <item name="android:navigationBarColor">@color/secondary</item>
     </style>
 </resources>

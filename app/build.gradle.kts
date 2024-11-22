@@ -90,7 +90,13 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+
+
+    // UnitTesting
     testImplementation(libs.junit)
+    testImplementation("io.kotlintest:kotlintest-runner-junit5:3.4.2")
+
+    // Testing (Android)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
