@@ -95,6 +95,7 @@ dependencies {
     // UnitTesting
     testImplementation(libs.junit)
     testImplementation("io.kotlintest:kotlintest-runner-junit5:3.4.2")
+    testImplementation("io.mockk:mockk:1.12.3")
 
     // Testing (Android)
     androidTestImplementation(libs.androidx.junit)
