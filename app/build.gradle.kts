@@ -20,7 +20,7 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.example.horoscapp.CustomTestRunner"
     }
 
     buildTypes {
@@ -33,10 +33,11 @@ android {
             )
 
             buildConfigField("String", "BASE_URL", "\"https://newastro.vercel.app/\"")
+            resValue("string", "app_name", "HoroscApp")
         }
         getByName("debug") {
             isDebuggable = true
-
+            resValue("string", "juliname", "[DEBUG] HoroscApp")
             buildConfigField("String", "BASE_URL", "\"https://newastro.vercel.app/\"")
         }
     }
@@ -66,11 +67,11 @@ dependencies {
     val retrofitVersion = "2.9.0"
 
     // CameraX
-    implementation ("androidx.camera:camera-core:${cameraVersion}")
-    implementation ("androidx.camera:camera-camera2:${cameraVersion}")
-    implementation ("androidx.camera:camera-lifecycle:${cameraVersion}")
-    implementation ("androidx.camera:camera-view:${cameraVersion}")
-    implementation ("androidx.camera:camera-extensions:${cameraVersion}")
+    implementation("androidx.camera:camera-core:${cameraVersion}")
+    implementation("androidx.camera:camera-camera2:${cameraVersion}")
+    implementation("androidx.camera:camera-lifecycle:${cameraVersion}")
+    implementation("androidx.camera:camera-view:${cameraVersion}")
+    implementation("androidx.camera:camera-extensions:${cameraVersion}")
 
     // Retrofit
     implementation("com.squareup.retrofit2:retrofit:${retrofitVersion}")
@@ -91,6 +92,14 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
 
+    // UI Testing
+    androidTestImplementation("androidx.test.ext:junit:1.1.5")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    androidTestImplementation("androidx.test.espresso:espresso-contrib:3.5.1")
+    androidTestImplementation("androidx.test.espresso:espresso-intents:3.4.0")
+    androidTestImplementation("com.google.dagger:hilt-android-testing:2.48")
+    androidTestImplementation("androidx.fragment:fragment-testing:1.6.1")
+    kaptAndroidTest("com.google.dagger:hilt-android-compiler:2.48")
 
     // UnitTesting
     testImplementation(libs.junit)
